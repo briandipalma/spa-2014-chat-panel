@@ -5,17 +5,24 @@ export default class {
         this.chatPanelDispatcher = chatPanelDispatcher;
     }
 
-    messageReceived(userName, messageText) {
+    messageReceived(userName, messageData) {
         this.chatPanelDispatcher.handleServerAction({
             actionType: ChatPanelConstants.MESSAGE_RECEIVED,
 			userName: userName,
-            messageText: messageText
+            messageData: messageData
         });
     }
 
 	messagesReceived(messages) {
 		this.chatPanelDispatcher.handleServerAction({
 			actionType: ChatPanelConstants.MESSAGES_RECEIVED,
+			messages: messages
+		});
+	}
+
+	recentConversationSelected(userName) {
+		this.chatPanelDispatcher.handleViewAction({
+			actionType: ChatPanelConstants.RECENT_CONVERSATION_SELECTED,
 			messages: messages
 		});
 	}
