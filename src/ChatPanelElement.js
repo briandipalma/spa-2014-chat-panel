@@ -19,12 +19,6 @@ export class ChatPanelElement extends HTMLElement {
 		this.chatBoxStore.addChangeListenerAndNotify(this.chatBoxStoreChanged, this);
 	}
 
-	// Fires when the instance is removed from the document
-	detachedCallback() {}
-
-	// Fires when an attribute is added, removed, or updated
-	attributeChangedCallback(attr, oldVal, newVal) {}
-
 	render() {
 		var documentFragment = document.createDocumentFragment();
 
