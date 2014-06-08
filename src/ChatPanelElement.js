@@ -1,11 +1,14 @@
-import {createStoreAndActions} from "./index";
+import {createStoreAndActions} from 'flux-es6';
+
+import ChatPanelStore from './ChatPanelStore';
+import ChatPanelActions from './ChatPanelActions';
 
 import "../style/index.css!";
 
 export class ChatPanelElement extends HTMLElement {
 	// Fires when an instance of the RecentMessagesElement is created
 	createdCallback() {
-		var [chatBoxStore, chatBoxActions] = createStoreAndActions();
+		var [chatBoxStore, chatBoxActions] = createStoreAndActions(ChatPanelStore, ChatPanelActions);
 
 		this.chatBoxStore = chatBoxStore;
 		this.chatBoxActions = chatBoxActions;
