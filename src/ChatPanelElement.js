@@ -16,8 +16,7 @@ export class ChatPanelElement extends HTMLElement {
 
 	// Fires when the instance is inserted into the document
 	attachedCallback() {
-		this.chatBoxStore.addChangeListener(this.chatBoxStoreChanged, this);
-		this.chatBoxStoreChanged();
+		this.chatBoxStore.addChangeListenerAndNotify(this.chatBoxStoreChanged, this);
 	}
 
 	// Fires when the instance is removed from the document
