@@ -3,10 +3,8 @@ import {createStoreAndActions} from 'flux-es6';
 import ChatPanelStore from './ChatPanelStore';
 import ChatPanelActions from './ChatPanelActions';
 
-import "../style/index.css!";
-
 export class ChatPanelElement extends HTMLElement {
-	// Fires when an instance of the RecentMessagesElement is created
+	// Fires when an instance of the ChatPanelElement is created
 	createdCallback() {
 		var [chatBoxStore, chatBoxActions] = createStoreAndActions(ChatPanelStore, ChatPanelActions);
 
@@ -35,7 +33,7 @@ export class ChatPanelElement extends HTMLElement {
 			documentFragment.appendChild(messageDiv);
 		});
 
-		this.innerHTML = "";
+		this.innerHTML = '';
 		this.appendChild(documentFragment);
 	}
 
