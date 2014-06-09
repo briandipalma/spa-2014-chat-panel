@@ -6,15 +6,15 @@ import ChatPanelActions from './ChatPanelActions';
 export class ChatPanelElement extends HTMLElement {
 	// Fires when an instance of the ChatPanelElement is created
 	createdCallback() {
-		var [chatBoxStore, chatBoxActions] = createStoreAndActions(ChatPanelStore, ChatPanelActions);
+		var [chatPanelStore, chatPanelActions] = createStoreAndActions(ChatPanelStore, ChatPanelActions);
 
-		this.chatBoxStore = chatBoxStore;
-		this.chatBoxActions = chatBoxActions;
+		this.chatPanelStore = chatPanelStore;
+		this.chatPanelActions = chatPanelActions;
 	}
 
 	// Fires when the instance is inserted into the document
 	attachedCallback() {
-		this.chatBoxStore.addChangeListenerAndNotify(this.chatBoxStoreChanged, this);
+		this.chatPanelStore.addChangeListenerAndNotify(this.chatPanelStoreChanged, this);
 	}
 
 	render() {
@@ -37,8 +37,8 @@ export class ChatPanelElement extends HTMLElement {
 		this.appendChild(documentFragment);
 	}
 
-	chatBoxStoreChanged() {
-		this.props = this.chatBoxStore.getState();
+	chatPanelStoreChanged() {
+		this.props = this.chatPanelStore.getState();
 		this.render();
 	}
 }
