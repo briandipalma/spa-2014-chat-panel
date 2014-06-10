@@ -22,13 +22,13 @@ export class ChatPanelElement extends HTMLElement {
 
 		this.props.forEach((messageData) => {
 			var messageDiv = document.createElement('div');
-			var messageSpan = document.createElement('span');
-			var userNameSpan = document.createElement('span');
+			var message = document.createElement('div');
+			var userName = document.createElement('div');
 
-			userNameSpan.textContent = messageData.userName;
-			messageSpan.textContent = messageData.messageText;
-			messageDiv.appendChild(userNameSpan);
-			messageDiv.appendChild(messageSpan);
+			userName.textContent = messageData.userName;
+			message.textContent = messageData.messageText;
+			messageDiv.appendChild(userName);
+			messageDiv.appendChild(message);
 
 			documentFragment.appendChild(messageDiv);
 		});
